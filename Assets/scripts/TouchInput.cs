@@ -51,6 +51,7 @@ public class TouchInput : MonoBehaviour
     {
         if (gesture.State == GestureRecognizerState.Ended)
         {
+            print("Swipe");
             // Код, который находится здесь, выполняется при свайпе по экрану
             StartCoroutine(RotateActiveObject(-gesture.DistanceX / Screen.width * 360.0f));
         }
