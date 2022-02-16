@@ -26,15 +26,15 @@ public class Panel : MonoBehaviour
     }
     public void togglePanel()
     {
-        if(checker == 1)
+        if(panel.activeSelf)
         {
             panel.SetActive(false);
-            checker = 0;
+            GameObject app = GameObject.Find("__app");
+            app.GetComponent<PanelController>().activePanel = null;
         }
         else
         {
             panel.SetActive(true);
-            checker = 1;
         }
     }
 }
