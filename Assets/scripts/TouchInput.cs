@@ -23,8 +23,22 @@ public class TouchInput : MonoBehaviour
     {
         if (gesture.State == GestureRecognizerState.Ended)
         {
-            // Этот код вызывается, когда мы нажали на экран
-            print("Tap");
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(new Vector3(gesture.FocusX, gesture.FocusY));
+            if (Physics.Raycast(ray, out hit))
+            {
+                GameObject objHit = hit.transform.gameObject;
+                if (objHit.TryGetComponent<Panel>(out Panel panel))
+                {
+                    panel.Touch();
+                }
+
+                if (objHit.TryGetComponent<TextController>(out TextController text))
+                {
+                    text.Touch();
+                }
+            }    
+
         }
     }
 

@@ -11,7 +11,7 @@ public class Panel : MonoBehaviour
         panel.SetActive(false);
     }
     
-    private void OnMouseDown()
+    public void Touch()
     {
         GameObject app = GameObject.Find("__app");
         if(app.GetComponent<PanelController>().activePanel != null)

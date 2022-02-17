@@ -37,7 +37,7 @@ public class TextController : MonoBehaviour
         }
     }
 
-    void OnMouseDown()
+    public void Touch()
     {
         ChangeText();
     }
